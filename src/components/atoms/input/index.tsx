@@ -1,11 +1,22 @@
-import {View, Text} from 'react-native';
 import React from 'react';
 
-const Input = () => {
+import {InputContainer, InputBase} from './styles';
+
+type Props = {
+  placeholder: string;
+  onChangeText: (value: string) => void;
+  value: string;
+};
+
+const Input: React.FC<Props> = ({placeholder, onChangeText, value}) => {
   return (
-    <View>
-      <Text>Input</Text>
-    </View>
+    <InputContainer>
+      <InputBase
+        placeholder={placeholder}
+        onChangeText={onChangeText}
+        value={value}
+      />
+    </InputContainer>
   );
 };
 

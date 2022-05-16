@@ -3,9 +3,13 @@ import {Alert} from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {LocationContext} from './context/LocationContext';
+import {LocationContext, LocationProvider} from './context/LocationContext';
 import Splashscreen from './screens/splashscreen';
 import Notes from './screens/notes';
+import NoteDetail from './screens/note-detail';
+import CreateNote from './screens/note-create';
+import {NotesProvider} from './context/NotesContext';
+import EditNote from './screens/note-edit';
 
 const Stack = createNativeStackNavigator();
 
@@ -13,16 +17,7 @@ const App = () => {
   const [latitude, setLatitude] = React.useState<null | number>(null);
   const [longitude, setLongitude] = React.useState<null | number>(null);
 
-  React.useEffect(() => {
-    Geolocation.getCurrentPosition(
-      position => {
-        setLatitude(position.coords.latitude);
-        setLongitude(position.coords.longitude);
-      },
-      error => Alert.alert('Error', JSON.stringify(error)),
-      {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000},
-    );
-  }, []);
+  React.useEffect(() => {}, []);
 
   React.useEffect(() => {
     if (latitude && longitude) {
@@ -38,23 +33,28 @@ const App = () => {
   }, [latitude, longitude]);
 
   return (
-    <LocationContext.Provider value={{latitude: '', longitude: ''}}>
-      <NavigationContainer
-        linking={{
-          prefixes: ['https://notepad.local', 'notepad://'],
-          config: {
-            screens: {
-              Notes: 'notes',
+    <LocationProvider>
+      <NotesProvider>
+        <NavigationContainer
+          linking={{
+            prefixes: ['https://notepad.local', 'notepad://'],
+            config: {
+              screens: {
+                Notes: 'notes',
+              },
             },
-          },
-        }}>
-        <Stack.Navigator
-          screenOptions={{headerShown: false, gestureEnabled: false}}>
-          <Stack.Screen name="Splashscreen" component={Splashscreen} />
-          <Stack.Screen name="Notes" component={Notes} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </LocationContext.Provider>
+          }}>
+          <Stack.Navigator
+            screenOptions={{headerShown: false, gestureEnabled: false}}>
+            <Stack.Screen name="Splashscreen" component={Splashscreen} />
+            <Stack.Screen name="Notes" component={Notes} />
+            <Stack.Screen name="NoteDetail" component={NoteDetail} />
+            <Stack.Screen name="CreateNote" component={CreateNote} />
+            <Stack.Screen name="EditNote" component={EditNote} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </NotesProvider>
+    </LocationProvider>
   );
 };
 

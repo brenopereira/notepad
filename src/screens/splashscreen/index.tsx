@@ -19,7 +19,7 @@ const Splashscreen = ({navigation}: any) => {
           <TextSecondary>Pad</TextSecondary>
         </View>
         <TextTertiary>
-          Um aplicativo para você salvar as suas notas dem aneira rápida e
+          Um aplicativo para você salvar as suas notas de maneira rápida e
           fácil.
         </TextTertiary>
         <Button onPress={() => navigation.navigate('Notes')}>
