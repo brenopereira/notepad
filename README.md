@@ -25,3 +25,15 @@ Se for utilizar o aplicativo usando emulador do Android, basta utilizar o códig
 ```bash 
 yarn ios
 ```
+
+<br>
+
+## Imanges do aplicativo Android 
+
+![alt text](https://raw.githubusercontent.com/brenopereira/notepad/develop/app-screens/app1.png?token=GHSAT0AAAAAABUPEHBWJX77ZJVPTGYILE4CYUBZMPA)
+
+![alt text](https://raw.githubusercontent.com/brenopereira/notepad/develop/app-screens/app2.png?token=GHSAT0AAAAAABUPEHBWHGOABR7Z2XS4MK4IYUBZMWA)
+
+![alt text](https://raw.githubusercontent.com/brenopereira/notepad/develop/app-screens/app3.png?token=GHSAT0AAAAAABUPEHBXKKKO7UT6HAZYOUE4YUBZM3A)
+
+![alt text](https://raw.githubusercontent.com/brenopereira/notepad/develop/app-screens/app4.png?token=GHSAT0AAAAAABUPEHBXGZNGB66CGXFKO5KKYUBZNAA)
