@@ -14,24 +14,6 @@ import EditNote from './screens/note-edit';
 const Stack = createNativeStackNavigator();
 
 const App = () => {
-  const [latitude, setLatitude] = React.useState<null | number>(null);
-  const [longitude, setLongitude] = React.useState<null | number>(null);
-
-  React.useEffect(() => {}, []);
-
-  React.useEffect(() => {
-    if (latitude && longitude) {
-      fetch(
-        `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=CHAVE`,
-      )
-        .then(res => res.json())
-        .then(data => {
-          console.log(data);
-        })
-        .catch(err => console.log(err));
-    }
-  }, [latitude, longitude]);
-
   return (
     <LocationProvider>
       <NotesProvider>

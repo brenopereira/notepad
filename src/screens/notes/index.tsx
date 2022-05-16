@@ -20,10 +20,6 @@ import {
 const Notes = ({navigation}: any) => {
   const {notes} = useContext(NotesContext);
 
-  React.useEffect(() => {
-    console.log(notes);
-  }, [notes]);
-
   return (
     <Container>
       <StatusBar barStyle={'light-content'} />

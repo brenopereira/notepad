@@ -25,8 +25,6 @@ export const NotesProvider: React.FC<Props> = ({children}) => {
   const deleteNote = ({id}) => {
     const filterNotesDatabase = notes.filter(note => note.id !== id);
 
-    console.log(filterNotesDatabase);
-
     setNotes(filterNotesDatabase);
   };
 
